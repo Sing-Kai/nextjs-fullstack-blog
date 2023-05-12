@@ -22,22 +22,36 @@ import Post, { PostProps } from "../components/Post"
 //   }
 // }
 
-type Props = {
-  feed: PostProps[]
-}
+// type Props = {
+//   feed: PostProps[]
+// }
 
 // https://vercel.com/guides/nextjs-prisma-postgres
 //https://github.com/prisma/fullstack-prisma-nextjs-blog
-const Blog: React.FC<Props> = (props) => {
+const Blog = () => {
+
+  const feed = [
+    {
+      id: "1",
+      title: "Prisma is the perfect ORM for Next.js",
+      content: "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
+      published: false,
+      author: {
+        name: "Nikolas Burk",
+        email: "burk@prisma.io",
+      },
+    }
+  ]
+
   return (
     <Layout>
       <div className="page">
         <h1>Public Feed</h1>
 
         {
-          props.feed && (
+          feed && (
             <main>
-            {props.feed.map((post) => (
+            {feed.map((post) => (
               <div key={post.id} className="post">
                 <Post post={post} />
               </div>
