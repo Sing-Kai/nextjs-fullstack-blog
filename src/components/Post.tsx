@@ -1,5 +1,5 @@
 import React from "react";
-import {useRouter} from "next/navigation";
+// import {useRouter} from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
 export type PostProps = {
@@ -16,7 +16,7 @@ export type PostProps = {
 const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   return (
-    <div onClick={() => useRouter().push(`/p/${post.id}`)}>
+    <div>
       <h2>{post.title}</h2>
       <small>By {authorName}</small>
       <ReactMarkdown children={post.content} />
